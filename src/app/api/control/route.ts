@@ -42,7 +42,7 @@ export async function POST(req: Request) {
                 // RTW024 แก้
                 `UPDATE "RTW024"
                  SET ${column} = $1
-                 WHERE id = (SELECT id FROM "RTW024" ORDER BY id DESC LIMIT 1)`,
+                 WHERE id = (SELECT id FROM "NUT006" ORDER BY id DESC LIMIT 1)`,
                 [state] // Update the state value (e.g., "on" or "off")
             );
 
@@ -68,7 +68,7 @@ export async function POST(req: Request) {
 export async function GET() {
     try {
         // RTW024 แก้
-        const result = await client.query('SELECT blue,yellow FROM "RTW024"');
+        const result = await client.query('SELECT blue,yellow FROM "NUT006"');
         return new Response(JSON.stringify(result.rows), {
             status: 200,
             headers: {
